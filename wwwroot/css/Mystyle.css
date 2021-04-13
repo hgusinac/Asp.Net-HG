@@ -1,0 +1,24 @@
+﻿body {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+header {
+    border: black solid 2px;
+    background-color: rgba(119, 118, 118, 0.205);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+.container {
+    background-color: rgba(119, 118, 118, 0.205);
+}
+footer {
+    text-align: center;
+    border: black solid 2px;
+    background-color: rgba(119, 118, 118, 0.205);
+}
