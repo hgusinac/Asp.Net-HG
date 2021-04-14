@@ -38,9 +38,20 @@ namespace Asp.Net_HG
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "FeverCheck",
+                    pattern: "Fever-or-not",
+                    defaults: new { controller = "Doctor", action = "FeverCheck" });
+
+
+
+
+                  endpoints.MapControllerRoute(
                  name: "default",
                  pattern: "{controller=Home}/{action=Index}/{id?}"
                  );
+
+
+
             });
         }
     }
