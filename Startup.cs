@@ -16,6 +16,13 @@ namespace Asp.Net_HG
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(50);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             services.AddMvc();
             
         }
@@ -33,13 +40,20 @@ namespace Asp.Net_HG
 
             app.UseRouting();
 
-
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                   name: "GuessingGame",
+                   pattern: "GuessingGame",
+                   defaults: new { controller = "Game", action = "NumbersGame" });
+
+
+
+                endpoints.MapControllerRoute(
                     name: "FeverCheck",
-                    pattern: "Fever-or-not",
+                    pattern: "FeverCheck",
                     defaults: new { controller = "Doctor", action = "FeverCheck" });
 
 
