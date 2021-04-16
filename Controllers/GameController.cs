@@ -17,12 +17,9 @@ namespace Asp.Net_HG.Controllers
         {
             if (string.IsNullOrWhiteSpace(HttpContext.Session.GetString("randomNumber")))
             {
-                int randomNumber = number.GetRandomNum();
+                int randomNumber = Number.GetRandomNum();
                 HttpContext.Session.SetInt32("randomNumber", randomNumber);
             }
-           
-           
-            
 
             return View();
         }
@@ -34,7 +31,7 @@ namespace Asp.Net_HG.Controllers
             if (!string.IsNullOrWhiteSpace(HttpContext.Session.GetString("randomNumber")))
             {
                 int newrandom = (int)HttpContext.Session.GetInt32("randomNumber");
-                string message = number.Rightguess(Convert.ToInt32(Userinput), newrandom);
+                string message = Number.Rightguess(Convert.ToInt32(Userinput), newrandom);
                 ViewBag.msg = message;
             }
             else
@@ -47,7 +44,7 @@ namespace Asp.Net_HG.Controllers
         [HttpGet]
         public IActionResult Restart()//Restart randomNumber game 
         {
-            int randomNumber = number.GetRandomNum();
+            int randomNumber = Number.GetRandomNum();
             HttpContext.Session.SetInt32("randomNumber", randomNumber);
             ViewBag.New = randomNumber;
             return RedirectToAction(nameof(NumbersGame));

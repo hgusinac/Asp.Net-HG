@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Asp.Net_HG.Models
 {
-    public class number
+    public class Number
     {
 
         private static Random random = new Random();
